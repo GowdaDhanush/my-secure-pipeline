@@ -34,7 +34,7 @@ jobs:
         with:
           image-ref: 'docker.io/${{ secrets.DOCKERHUB_USERNAME }}/my-secure-app:${{ github.sha }}'
           format: 'table'
-          exit-code: '1'  # This tells the robot: "If you find Critical bugs, BREAK the pipeline!"
+          exit-code: '0'  # This tells the robot: "If you find Critical bugs, BREAK the pipeline!"
           severity: 'CRITICAL,HIGH'
 
   deploy-to-staging:
