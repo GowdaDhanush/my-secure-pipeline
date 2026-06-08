@@ -43,3 +43,15 @@ jobs:
     steps:
       - name: Simulation
         run: echo "Successfully deployed version ${{ github.sha }} to Staging!"
+        # ==========================================
+  # NEW JOB: DEPLOY TO PRODUCTION (MANUAL GATE)
+  # ==========================================
+  deploy-to-production:
+    needs: deploy-to-staging # Only allow production if staging went perfectly
+    runs-on: ubuntu-latest
+    environment: production  # This line activates the human gate rule you saved earlier!
+    steps:
+      - name: Production Simulation
+        run: |
+          echo "Connecting to LIVE production servers..."
+          echo "Production deployment successful!"
